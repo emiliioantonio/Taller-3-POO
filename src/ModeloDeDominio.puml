@@ -1,0 +1,50 @@
+public class ModeloDominio {
+
+    /*
+    @startuml
+    title Modelo de Dominio - UCNMusic 2.0 (Conceptual)
+
+    entity Cancion
+    entity Artista
+    entity Genero
+    entity UCNMusic
+
+    Cancion --> Genero : pertenece a
+    Genero  --> Cancion : agrupa
+
+    Cancion --> Artista : artista principal
+    Cancion --> Artista : artista colaborador
+
+    Artista --> Cancion : participa en
+
+    UCNMusic --> Cancion : administra
+    UCNMusic --> Artista : administra
+    UCNMusic --> Genero  : administra
+
+    note top of Cancion
+      Representa una canción con:
+      - nombre
+      - artista principal
+      - artista colaborador
+      - género
+      - likes
+    end note
+
+    note right of Artista
+      Músico o grupo que interpreta
+      canciones en el sistema.
+    end note
+
+    note left of Genero
+      Categoría musical asignada a
+      cada canción (enum en el sistema).
+    end note
+
+    note bottom of UCNMusic
+      Dominio: sistema que gestiona
+      canciones, artistas y géneros.
+    end note
+
+    @enduml
+    */
+}
