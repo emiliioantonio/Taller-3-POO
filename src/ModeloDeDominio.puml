@@ -1,0 +1,45 @@
+@startuml
+entity Cancion{
+* nombre : String
+* artista : String
+* artista2 : String
+* genero : Genero
+* likes : int
+}
+entity Genero{
+ROCK
+POP
+RAP
+TRAP
+REGGAETON
+METAL
+ELECTRONICA
+OTRO
+}
+
+entity Sistema{
++registrar cancion
++buscar por genero
++recomendar cancion
++dar like
++ranking por cancion
++ranking por genero
++ranking por artista
+}
+entity Catalogo{
+}
+entity CSV{
+
+}
+
+entity Usuario{
+}
+
+Usuario --> Sistema : usa
+Sistema --> Catalogo : administra
+Catalogo --> Cancion : contiene
+Cancion --> Genero  : pertenece artista
+Sistema --> CSV : lee/escribe
+CSV --> Cancion : almacena datos
+
+@enduml

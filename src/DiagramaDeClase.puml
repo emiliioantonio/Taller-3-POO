@@ -1,0 +1,95 @@
+@startuml
+package services{
+        interface Sistema {
+          +menu() : void
+          +cargarCanciones() : void
+          +guardarCanciones() : void
+          +mostrarPorGenero() : void
+          +registrarCancion() : void
+          +recomendarCancion() : void
+          +darlike() : void
+          +rankingCanciones() : void
+          +rankingGeneros() : void
+          +rankingArtistas() : void
+        }
+
+        class SistemaImpl implements Sistema{
+          - static rutaCsv : String
+          - canciones : List<Cancion>
+          - sc : Scanner
+          - lector : LectorArchivos
+          + SistemaImpl()
+          + menu() : void
+          + cargarCanciones() : void
+          + guardarCanciones() : void
+          + mostrarPorGenero() : void
+          + registrarCancion() : void
+          + recomendarCancion() : void
+          + darlike() : void
+          + rankingCanciones() : void
+          + rankingGeneros() : void
+          + rankingArtistas() : void
+        }
+
+        class LectorArchivos {
+          + cargarCanciones(rutaCsv : String) : List<Cancion>
+          + guardarCanciones(rutaCsv : String, canciones : List<Cancion>) : void
+        }
+
+
+
+
+}
+
+
+package models{
+        class Cancion {
+          - nombre : String
+          - artista : String
+          - artista2 : String
+          - genero : Genero
+          - likes : int
+
+          +Cancion(nombre : String, artista : String, artista2 : String, genero : Genero, likes : int)
+          + getNombre() : String
+          + getArtista() : String
+          + getArtista2() : String
+          + getGenero() : Genero
+          + getLikes() : int
+          + setLikes(likes : int) : void
+          + toString() : String
+          + toCSVLine() : String
+        }
+
+        enum Genero {
+          ROCK
+          POP
+          RAP
+          REGGAETON
+          ELECTRONICA
+          METAL
+          TRAP
+          OTRO
+          + fromString(texto : String) : Genero
+        }
+
+
+
+}
+
+
+
+
+    SistemaImpl --> LectorArchivos : usa
+    SistemaImpl --> Cancion : gestiona
+
+    LectorArchivos --> Cancion : crea
+
+    Cancion --> Genero : tiene
+
+    @enduml
+
+}
+
+
+
